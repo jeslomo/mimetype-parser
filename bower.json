@@ -1,0 +1,21 @@
+{
+  "name": "mimetype-parser",
+  "description": "A key-value parser of Mime Type's",
+  "main": "js/mimetype.js",
+  "keywords": [
+    "mimetype"
+  ],
+  "authors": [
+    "Jesús López <jeslomo@gmail.com>"
+  ],
+  "license": "MIT",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "app/bower_components",
+    "test",
+    "tests"
+  ]
+}
