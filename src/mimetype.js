@@ -1,17 +1,29 @@
 import {mimes} from './mime-dictionary';
 
-class MimeType {
+window.MimeTypeParser = {
 
     parseMime(mime) {
-        mimes.filter(vMime => {
-            console.log(vMime);
-            return vMime == mime;
-        })
-    }
+        let position = Object.values(mimes).indexOf(mime);
+        if (position === -1) {
+            return null;
+        }
 
+        return Object.keys(mimes)[position].substr(1);
+    },
+    parseMimeWithDot(mime) {
+        return "." + this.parseMime(mime);
+    },
     parseType(type) {
+        type = type[0] === '.' ? type : '.' + type;
 
+        let position = Object.keys(mimes).indexOf(type);
+        if (position === -1) {
+            return null;
+        }
+
+        return Object.values(mimes)[position];
+    },
+    parseTypeWithDot(type) {
+        return this.parseType(type);
     }
-}
-
-export default MimeType;
+};

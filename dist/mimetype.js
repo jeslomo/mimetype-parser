@@ -689,38 +689,34 @@
 
 	'use strict';
 	
-	Object.defineProperty(exports, "__esModule", {
-	    value: true
-	});
-	
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-	
 	var _mimeDictionary = __webpack_require__(1);
 	
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-	
-	var MimeType = function () {
-	    function MimeType() {
-	        _classCallCheck(this, MimeType);
-	    }
-	
-	    _createClass(MimeType, [{
-	        key: 'parseMime',
-	        value: function parseMime(mime) {
-	            _mimeDictionary.mimes.filter(function (vMime) {
-	                console.log(vMime);
-	                return vMime == mime;
-	            });
+	window.MimeTypeParser = {
+	    parseMime: function parseMime(mime) {
+	        var position = Object.values(_mimeDictionary.mimes).indexOf(mime);
+	        if (position === -1) {
+	            return null;
 	        }
-	    }, {
-	        key: 'parseType',
-	        value: function parseType(type) {}
-	    }]);
 	
-	    return MimeType;
-	}();
+	        return Object.keys(_mimeDictionary.mimes)[position].substr(1);
+	    },
+	    parseMimeWithDot: function parseMimeWithDot(mime) {
+	        return "." + this.parseMime(mime);
+	    },
+	    parseType: function parseType(type) {
+	        type = type[0] === '.' ? type : '.' + type;
 	
-	exports.default = MimeType;
+	        var position = Object.keys(_mimeDictionary.mimes).indexOf(type);
+	        if (position === -1) {
+	            return null;
+	        }
+	
+	        return Object.values(_mimeDictionary.mimes)[position];
+	    },
+	    parseTypeWithDot: function parseTypeWithDot(type) {
+	        return this.parseType(type);
+	    }
+	};
 
 /***/ }
 /******/ ]);
