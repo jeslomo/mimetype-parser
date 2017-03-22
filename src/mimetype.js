@@ -8,7 +8,9 @@ window.MimeTypeParser = {
             return null;
         }
 
-        return Object.keys(mimes)[position].substr(1);
+        let type = Object.keys(mimes)[position].split(':');
+
+        return type[0].substr(1);
     },
     parseMimeWithDot(mime) {
         return "." + this.parseMime(mime);

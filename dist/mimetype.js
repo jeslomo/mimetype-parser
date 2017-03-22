@@ -698,7 +698,9 @@
 	            return null;
 	        }
 	
-	        return Object.keys(_mimeDictionary.mimes)[position].substr(1);
+	        var type = Object.keys(_mimeDictionary.mimes)[position].split(':');
+	
+	        return type[0].substr(1);
 	    },
 	    parseMimeWithDot: function parseMimeWithDot(mime) {
 	        return "." + this.parseMime(mime);
