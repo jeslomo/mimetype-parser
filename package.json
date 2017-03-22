@@ -1,0 +1,37 @@
+{
+  "name": "mimetype-parser",
+  "version": "0.0.1",
+  "description": "A key-value parser of Mime Type's",
+  "main": "mimetype.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jeslomo/mimetype-parser.git"
+  },
+  "keywords": [
+    "mimetype",
+    "parser"
+  ],
+  "author": "Jesús López Morales <jeslomo@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/jeslomo/mimetype-parser/issues"
+  },
+  "homepage": "https://github.com/jeslomo/mimetype-parser#readme",
+  "devDependencies": {
+    "babel-core": "^6.24.0",
+    "babel-loader": "^6.4.1",
+    "babel-preset-env": "^1.2.2",
+    "gulp": "^3.9.1",
+    "gulp-babel": "^6.1.2",
+    "gulp-concat": "^2.6.1",
+    "gulp-sourcemaps": "^2.4.1",
+    "gulp-util": "^3.0.8",
+    "unminified-webpack-plugin": "^1.2.0",
+    "webpack": "^2.3.1",
+    "webpack-stream": "^3.2.0"
+  },
+  "dependencies": {}
+}
