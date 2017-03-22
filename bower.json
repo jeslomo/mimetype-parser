@@ -1,7 +1,7 @@
 {
   "name": "mimetype-parser",
   "description": "A key-value parser of Mime Type's",
-  "main": "js/mimetype.js",
+  "main": "dist/02db8cb6ce2831cfbafd.js",
   "keywords": [
     "mimetype"
   ],
