@@ -42,15 +42,15 @@
 /************************************************************************/
 /******/ ([
 /* 0 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	__webpack_require__(1);
 	module.exports = __webpack_require__(2);
 
 
-/***/ },
+/***/ }),
 /* 1 */
-/***/ function(module, exports) {
+/***/ (function(module, exports) {
 
 	"use strict";
 	
@@ -683,9 +683,9 @@
 	    ".tgz": "application/x-tar"
 	};
 
-/***/ },
+/***/ }),
 /* 2 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
@@ -693,12 +693,19 @@
 	
 	window.MimeTypeParser = {
 	    parseMime: function parseMime(mime) {
-	        var position = Object.values(_mimeDictionary.mimes).indexOf(mime);
+	
+	        var position = -1;
+	        for (var m in _mimeDictionary.mimes) {
+	            if (_mimeDictionary.mimes[m].indexOf(mime) !== -1) {
+	                position = m;
+	            }
+	        }
+	
 	        if (position === -1) {
 	            return null;
 	        }
 	
-	        var type = Object.keys(_mimeDictionary.mimes)[position].split(':');
+	        var type = position.split(':');
 	
 	        return type[0].substr(1);
 	    },
@@ -713,12 +720,12 @@
 	            return null;
 	        }
 	
-	        return Object.values(_mimeDictionary.mimes)[position];
+	        return _mimeDictionary.mimes[type];
 	    },
 	    parseTypeWithDot: function parseTypeWithDot(type) {
 	        return this.parseType(type);
 	    }
 	};
 
-/***/ }
+/***/ })
 /******/ ]);

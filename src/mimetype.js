@@ -3,12 +3,19 @@ import {mimes} from './mime-dictionary';
 window.MimeTypeParser = {
 
     parseMime(mime) {
-        let position = Object.values(mimes).indexOf(mime);
+
+        let position = -1;
+        for (let m in mimes) {
+            if (mimes[m].indexOf(mime) !== -1) {
+                position = m;
+            }
+        }
+
         if (position === -1) {
             return null;
         }
 
-        let type = Object.keys(mimes)[position].split(':');
+        let type = position.split(':');
 
         return type[0].substr(1);
     },
@@ -23,7 +30,7 @@ window.MimeTypeParser = {
             return null;
         }
 
-        return Object.values(mimes)[position];
+        return mimes[type];
     },
     parseTypeWithDot(type) {
         return this.parseType(type);

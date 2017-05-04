@@ -622,4 +622,4 @@ export let mimes = {
     ".dat": "application/octet-stream",
     ".gz": "application/x-gzip",
     ".tgz": "application/x-tar"
-}
+};
